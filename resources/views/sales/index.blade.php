@@ -18,7 +18,7 @@
 
                         <div class="float-right">
                             <button type="button" class="btn btn-primary btn-sm float-right"  data-placement="left" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                {{ __('Agregar producto') }}
+                                {{ __('Agregar venta') }}
                             </button>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
 										<th>Precio</th>
 										<th>Fecha de salida</th>
 
-                                        <th>==Acciones==</th>
+                                        <th>Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>

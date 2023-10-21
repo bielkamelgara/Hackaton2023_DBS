@@ -141,7 +141,7 @@
 
 .sidebar .navbar .navbar-nav .nav-link:hover,
 .sidebar .navbar .navbar-nav .nav-link.active {
-    color: var(--primary);
+    color:#006F76;
     background: #FFFFFF;
     border-color: var(--primary);
 }

@@ -4,7 +4,7 @@
     <div class="mb-3">
         <label for="output" class="form-label">Salida</label>
         <select wire:model.live="selectedOutput" class="form-select" id= "output" required>
-            <option value="">== Opciones ==</option>
+            <option value="">Opciones</option>
             @foreach ($products as $product)
                 <option value="{{$product->name}}">{{$product->name}}</option>
             @endforeach
