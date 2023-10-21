@@ -68,7 +68,7 @@
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
-            <div class="hero__items set-bg" data-setbg="../assets/img/hero/Home1.png">
+            <div class="hero__items set-bg" data-setbg="../assets/img/hero/Home3.png">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">
@@ -89,7 +89,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hero__items set-bg" data-setbg="../assets/img/hero/Home3.png">
+            <div class="hero__items set-bg" data-setbg="../assets/img/hero/Home1.png">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">
