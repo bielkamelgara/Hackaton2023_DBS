@@ -3,8 +3,10 @@
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SaleController;
 use App\Http\Controllers\SectorController;
 use App\Livewire\SectorLive;
+use App\Models\Sale;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +35,7 @@ Route::get('/', function () {
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/catalogue', [App\Http\Controllers\CatalogController::class, 'index'])->name('catalogue');
 
 
 Route::middleware('auth')->group(function () {
@@ -62,7 +65,13 @@ Route::get('/entrances/showproduct/{id}', [App\Http\Controllers\EntranceControll
 
 Route::get('/sector/live', SectorLive::class)->name('sector/live');
 
-
+Route::get('sale', [SaleController::class, 'index'])->name('sale.index');
+Route::get('/sale/create', [SaleController::class, 'create'])->name('sale/create');
+Route::post('/sale/store',  [SaleController::class, 'store'])->name('sale/store');
+Route::delete('/sale/destroy/{id}', [SaleController::class, 'destroy'])->name('sale.destroy');
+Route::get('/sale/show/{id}', [SaleController::class, 'show'])->name('sale.show');
+Route::get('/sale/edit/{id}', [SaleController::class, 'edit'])->name('sale.edit');
+Route::put('sale/update', [SaleController::class, 'update'])->name('sale.update');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -73,6 +82,4 @@ Route::middleware('auth')->group(function () {
 Route::get('/home/post', [App\Http\Controllers\HomeController::class, 'show'])->name('show-post');
 
 
-
 require __DIR__ . '/auth.php';
-

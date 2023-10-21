@@ -39,7 +39,7 @@ class CreateProduct extends Component
             'price' => $this->price,
             'size' => $this->tall,
             'color' => $this->color,
-            'avilable' => $this->selectedAvilable,
+            'avilable' => 'Disponible',
             'ammount' => $this->amount,
             'photo' => $this->newphoto,
             'photoname' => $this->newphoto,

@@ -40,7 +40,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
                 <a href="#" class="dropdown-item">Mi Perfil</a>
-                <a href="#" class="dropdown-item">Configuraciones</a>
+                <a href="{{ route('profile.edit') }}" class="dropdown-item">Configuraciones</a>
                 <a class="dropdown-item" href="{{ route('logout') }}"
                     onclick="event.preventDefault(); document.getElementById('formLogout').submit();">
                     <span>Cerrar</span>

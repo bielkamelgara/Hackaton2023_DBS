@@ -46,9 +46,9 @@
 											<td>{{ date('Y-M-d',strtotime($sale->date)) }}</td>
 
                                             <td>
-                                                <form action="{{ route('product.destroy',$product->id) }}" method="POST">
-                                                    <button type="button" class="btn btn-sm btn-primary btnshow" value={{$product->id}}><i class="fa fa-fw fa-eye"></i></button>
-                                                    <button type="button" class="btn btn-sm btn-success btnedit" value= {{$product->id}}><i class="fa fa-fw fa-edit"></i></button>
+                                                <form action="{{ route('sale.destroy', $sale->id) }}" method="POST">
+                                                    <button type="button" class="btn btn-sm btn-primary btnshow" value={{$sale->id}}><i class="fa fa-fw fa-eye"></i></button>
+                                                    <button type="button" class="btn btn-sm btn-success btnedit" value= {{$sale->id}}><i class="fa fa-fw fa-edit"></i></button>
                                                     @csrf
 
                                                     @method('DELETE')
@@ -75,7 +75,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                         <div class="modal-body">
-                            @livewire('product.create-product')
+                            @livewire('sale.create-sale')
                         </div>
                     </div>
                 </div>
@@ -97,76 +97,45 @@
 
                         <div class="modal-body">
                             <div class="box-body row">
-                                <div class="form-group mt-3 mb-3">
-                                    <label for="name-product1" class="form-label">Nombre del Producto</label>
-                                    <input type="text" class="form-control" name="name-product1" id="name-product1" required>
-                                </div>
-
-
-                                <div class="form-group  mt-3 mb-3">
-                                    <label for="des-product1" class="form-label">Descripcion</label>
-                                    <textarea name="des-product1" id="des-product1" cols="30" rows="5" class="form-control" required></textarea>
-                                </div>
-
-
-                                <div class="form-group mt-3 mb-3">
-                                    <label for="price-product1" class="form-label">Precio</label>
-                                    <input type="number" class="form-control" name="price-product1" id="price-product1" required>
-                                </div>
-
-
-                                <div class="form-group mt-3 mb-3">
-                                    <label for="tall-product1">Talla</label>
-                                    <input type="text" class="form-control" name="tall-product1" id="tall-product1" required>
-                                </div>
-
-
-                                <div class="form-group mt-3 mb-3">
-                                    <label for="color-product1" class="form-label">Color</label>
-                                    <input type="text" class="form-control" name="color-product1" id="color-product1" required>
-                                </div>
-
-
-                                <div class="form-group mt-3 mb-3">
-                                    <label for="avilable-product1">Disponibilidad</label>
-                                    <select name="avilable-product1" id="avilable-product1" class="form-select" required>
-                                        <option value="">==Opciones==</option>
-                                        <option value="Disponible">Disponible</option>
-                                        <option value="No Disponible">No Disponible</option>
-                                    </select>
-                                </div>
-
-
-                                <div class="form-group mt-3 mb-3">
-                                    <label for="ammount-product1">Cantidad</label>
-                                    <input type="number" name="amount-product1" id="amount-product1" class="form-control" required>
-                                </div>
-
-
-                                <div class="form-group mt-3 mb-3">
-                                    <label for="status-product1">Estado</label>
-                                    <select name="status-product1" id="status-product1" class="form-select" required>
-                                        <option value="">==Opciones==</option>
-                                        <option value="Usado">Usado</option>
-                                        <option value="Nuevo">Nuevo</option>
-                                        <option value="SemiNuevo">SemiNuevo</option>
-                                    </select>
-                                </div>
-
-
-                                <div class="form-group mt-3 mb-3">
-                                    <label for="sector-product1">Sector</label>
-                                    <select name="sector-product1" id="sector-product1" class="form-select" required>
-                                        <option value="">==Opciones==</option>
-                                        @foreach ($sectors as $sector)
-                                            <option value="{{$sector->id}}">{{$sector->name}}</option>
+                                <div class="mb-3">
+                                    <label for="output" class="form-label">Salida</label>
+                                    <select wire:model.live="selectedOutput" class="form-select" id= "output" required>
+                                        <option value="">== Opciones ==</option>
+                                        @foreach ($products as $product)
+                                            <option value="{{$product->name}}">{{$product->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
 
-                                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                    <button type="submit" class="btn btn-info">{{ __('Guardar') }}</button>
+                                <label for="quantitysale" class="form-label">Cantidad a vender</label>
+                                <div class = "input-group mb-3" >
+                                    <input type="number" wire:model.live="quantity" class= "form-control" id= "quantitysale" required>
+                                    <span class="input-group-text">
+                                        <label for="cantidad" class="form-label" style="margin-top: 2%">Cantidad que posees</label>
+                                        <input type="text" class="form-control" wire:model="quantityOrigin" id="cantidad" style="width: 50px" readonly>
+                                    </span>
+                                </div>
+
+
+                                <label for="priceval" class="form-label">Precio</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text">
+                                        <select wire:model.live="selectedMoney" class="form-select">
+                                            <option value="1">C$</option>
+                                            <option value="2">$</option>
+                                        </select>
+                                    </span>
+                                    <input type="number" wire:model.live="priceval" class="form-control" id="priceval" readonly>
+                                    <span class="input-group-text">Cambio de dolar a 36.57</span>
+                                </div>
+
+                                <div class= "mb-3">
+                                    <label for="datesale">Fecha en la que se realizo</label>
+                                    <input type="date" wire:model.live="date" class="form-control" id="datesale" required>
+                                </div>
+
+                                <div class="box-footer mt20">
+                                    <button type="submit" class="btn btn-primary">{{ __('Guardar') }}</button>
                                 </div>
                             </div>
                         </div>

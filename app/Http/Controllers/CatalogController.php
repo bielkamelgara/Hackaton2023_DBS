@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CatalogController extends Controller
 {
@@ -11,7 +13,10 @@ class CatalogController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $products = Product::where('id_user', Auth()->user()->id)->get();
+
+        return view('catalogue', compact('products', 'user'));
     }
 
     /**

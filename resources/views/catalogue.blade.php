@@ -11,10 +11,9 @@
               <h5 class="card-title">{{$product->name}}</h5>
               <p class="card-text">{{$product->description}}</p>
               <h6 class="card-title">{{$product->avilable}}</h6>
-              <a href="{{ route('product.show', $product->id) }}" class="btn btn-primary">Ir a la publicación</a>
+              <a href="#" class="btn btn-primary">Ir</a>
             </div>
           </div>
         @endforeach
     </div>
 @endsection
-

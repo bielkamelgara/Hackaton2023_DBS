@@ -1,7 +1,7 @@
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar bg-light navbar-light">
         <a href="home" class="navbar-brand mx-4 mb-3">
-            <h3 class="text-primary"> </i>Push Business</h3>
+             <img src="../assets/img/LOGOS.png">
         </a>
         <div class="d-flex align-items-center ms-4 mb-4">
             <div class="position-relative">
@@ -26,10 +26,10 @@
                 <div class="dropdown-menu bg-transparent border-0">
                     <a href="{{ route('product.index') }}" class="dropdown-item">Productos</a>
                     <a href="{{ route('entrances.index') }}" class="dropdown-item">Entradas</a>
-                    <a href="#" class="dropdown-item">Salidas</a>
+                    <a href="{{ route('sale.index')}}" class="dropdown-item">Salidas</a>
                 </div>
             </div>
-            <a href="#" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Catalogo</a>
+            <a href="{{ route('catalogue') }}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Catalogo</a>
             <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Ventas</a>
             <a href="#" class="nav-item nav-link"><i class="fab fa-rocketchat"></i> Chats</a>
             <a href="#" class="nav-item nav-link"><i class="fas fa-warehouse"></i> Categorias</a>
